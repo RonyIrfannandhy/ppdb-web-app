@@ -1,15 +1,16 @@
 <?php
-// Tampilkan error jika ada masalah di halaman web
+// Tampilkan error jika ada bug di PHP
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Pindah ke direktori root agar semua require/include gambar, CSS, & koneksi.php berjalan normal
+// Ubah direktori kerja ke root folder
 chdir(__DIR__ . '/..');
 
-// Panggil file index utama PPDB kamu
+// Jalankan file index utama
 if (file_exists('index.php')) {
-    require 'index.php';
+    require_once 'index.php';
 } else {
-    echo "File index.php utama tidak ditemukan di root folder.";
+    echo "<h3>File index.php tidak ditemukan di root folder repository.</h3>";
 }
 ?>
